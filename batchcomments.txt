@@ -1,0 +1,8 @@
+#if sentences on batch scripts
+
+EQU - equal
+NEQ - Not Equal
+LSS - Less than
+LEQ - Less than or Equal
+GTR - Greater than
+GEQ - Greater than or Equal
