@@ -62,9 +62,4 @@ if %HOURS% GEQ 21 (
 
 if %hora% LSS 10 (set hora=0%hora%) 
 
-set zonahoraria=%hora%:%minutos%:%seconds% %AMPM%
-
-echo %DSTAMP%
-echo %zonahoraria%
-
-pause
+time %hora%:%minutos%:%seconds% %AMPM%
