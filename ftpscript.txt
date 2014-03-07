@@ -1,0 +1,8 @@
+open 10.209.171.5
+USER
+PASSWD
+lcd C:\webdevfiles\ftp_webdev
+PWD
+put test.txt
+disconnect
+bye
