@@ -67,6 +67,7 @@ time %hora%:%minutos%:%seconds% %AMPM%
 ::Revisar que los servicios IIS y webdev esten stop
 netstat -o -n -a | findstr :80 >nul 2>&1 && set website=true
 if %website%==true (
+	echo website
 	C:\Windows\System32\inetsrv\appcmd.exe stop site /site.name:"default web site"
 )
 
@@ -74,6 +75,7 @@ sc query "Webdev 15" | find "RUNNING" >nul 2>&1 && set Webdev=true
 sc query "Webdev 15" | find "STOPPED" >nul 2>&1 && set Webdev=false
 
 if %Webdev%==true (
+	echo webdev
 	net stop "Webdev 15"
 ) 
 
@@ -83,9 +85,16 @@ start /d "C:\Program Files (x86)\AutomaticSetup\" AutomaticSetup.exe
 :: linea de extraccion   
  7z.exe x "C:\webdevfiles\ftp_webdev\Install.7z" -o"C:\webdevfiles\sites" -r -y | find "Everything is Ok" >nul 2>&1 && set install=true
  if %install%==true (
-	echo status ok
+ echo ok
+	net start "Webdev 15"
+	C:\Windows\System32\inetsrv\appcmd.exe start site /site.name:"default web site"
+	C:\Windows\System32\inetsrv\appcmd.exe start site /site.name:"default web site"
  )
 
 
 ::Detener el task
 schtasks /Change /TN "Event Viewer Tasks\RunInternetTimeSync" /DISABLE
+
+echo %hora%:%minutos%:%seconds% %AMPM% > C:\lastrun.txt
+
+::pause
