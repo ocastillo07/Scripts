@@ -39,7 +39,7 @@ if %HOURS%==08 (
 if %HOURS% GEQ 09 (
 	if %HOURS% LEQ 20 (
 		if %HOURS%==09 (
-			set  hora=01
+			set hora=1
 			set AMPM=AM
 		) ELSE (
 			if %HOURS%==20 (
@@ -62,6 +62,7 @@ if %HOURS% GEQ 21 (
 
 if %hora% LSS 10 (set hora=0%hora%) 
 
+echo %hora%:%minutos%:%seconds% %AMPM%
 time %hora%:%minutos%:%seconds% %AMPM%
 
 ::Revisar que los servicios IIS y webdev esten stop
@@ -80,7 +81,7 @@ if %Webdev%==true (
 ) 
 
 ::Ejecutar el exe para actualizar el sistema
-start /d "C:\Program Files (x86)\AutomaticSetup\" AutomaticSetup.exe
+::start /d "C:\Program Files (x86)\AutomaticSetup\" AutomaticSetup.exe
 
 :: linea de extraccion   
  7z.exe x "C:\webdevfiles\ftp_webdev\Install.7z" -o"C:\webdevfiles\sites" -r -y | find "Everything is Ok" >nul 2>&1 && set install=true
@@ -93,8 +94,10 @@ start /d "C:\Program Files (x86)\AutomaticSetup\" AutomaticSetup.exe
 
 
 ::Detener el task
-schtasks /Change /TN "Event Viewer Tasks\RunInternetTimeSync" /DISABLE
+::schtasks /Change /TN "Event Viewer Tasks\Initial_Setup" /DISABLE
 
-echo %hora%:%minutos%:%seconds% %AMPM% > C:\lastrun.txt
+::Borrar el servicio
+::sc delete automaticsetup
 
-::pause
+::echo %hora%:%minutos%:%seconds% %AMPM% > C:\lastrun.txt
+
