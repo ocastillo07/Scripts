@@ -43,7 +43,7 @@ path=""
 if [ -d "$1" ]; then
     path=$1;
 else
-    path="/home/Replica/Nodo3_NDB/facturacionelectronica"
+    path="/home/data/Replica/Nodo3/facturacionelectronica"
 fi
 echo "Importando primer nodo facturacionelectronica2011 from: $path"
 print_folder_recurse_FE $path
@@ -55,7 +55,7 @@ path=""
 if [ -d "$1" ]; then
     path=$1;
 else
-    path="/home/Replica/Nodo3_NDB/hmailserver"
+    path="/home/data/Replica/Nodo3/hmailserver"
 fi
 echo "Importando primer nodo hmailserver from: $path"
 print_folder_recurse_HM $path
@@ -66,7 +66,7 @@ path=""
 if [ -d "$1" ]; then
     path=$1;
 else
-    path="/home/Replica/Nodo4_NDB/facturacionelectronica"
+    path="/home/data/Replica/Nodo4/facturacionelectronica"
 fi
 echo "Importando segundo nodo facturacionelectronica2011 from: $path"
 print_folder_recurse_FE $path
@@ -77,7 +77,7 @@ path=""
 if [ -d "$1" ]; then
     path=$1;
 else
-    path="/home/Replica/Nodo4_NDB/hmailserver"
+    path="/home/data/Replica/Nodo4/hmailserver"
 fi
 echo "Importando segundo nodo Hmailserver from: $path"
 print_folder_recurse_HM $path
