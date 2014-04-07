@@ -1,0 +1,9 @@
+Url is string = "https://166.78.185.125/WD150AWP/WD150Awp.exe/CONNECT/FacturacionElectronicaV2011"
+
+// Send the request to the Amazon server
+HTTPRequest(Url)
+IF StringCount(ErrorInfo(errFullDetails), "System error sending HTTP request") > 0  THEN 
+	RESULT False
+ELSE
+	RESULT True
+END
