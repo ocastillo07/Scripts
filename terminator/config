@@ -1,0 +1,64 @@
+[global_config]
+  suppress_multiple_term_dialog = True
+[keybindings]
+[profiles]
+  [[default]]
+    background_darkness = 0.8
+    background_type = transparent
+    cursor_color = "#aaaaaa"
+    scrollback_infinite = True
+[layouts]
+  [[default]]
+    [[[window0]]]
+      type = Window
+      parent = ""
+    [[[child1]]]
+      type = Terminal
+      parent = window0
+      profile = default
+  [[production]]
+    [[[child0]]]
+      type = Window
+      parent = ""
+      order = 0
+      position = 1920:0
+      maximised = True
+      fullscreen = False
+      size = 1920, 1043
+      title = oscar:~
+      last_active_term = 6cba6765-74fa-44df-a5dd-d0b919af74a8
+      last_active_window = True
+    [[[child1]]]
+      type = VPaned
+      parent = child0
+      order = 0
+      position = 387
+      ratio = 0.37283236994219654
+    [[[terminal2]]]
+      type = Terminal
+      parent = child1
+      order = 0
+      profile = default
+      uuid = 6cba6765-74fa-44df-a5dd-d0b919af74a8
+      command = "(ssh deployer@timbox-ws-01); bash"
+    [[[child3]]]
+      type = VPaned
+      parent = child1
+      order = 1
+      position = 327
+      ratio = 0.5030769230769231
+    [[[terminal4]]]
+      type = Terminal
+      parent = child3
+      order = 0
+      profile = default
+      uuid = 2b9d3195-d44c-4683-9e51-86a57535381f
+      command = "(ssh deployer@timbox-ws-02); bash"
+    [[[terminal5]]]
+      type = Terminal
+      parent = child3
+      order = 1
+      profile = default
+      uuid = 7ee93812-fafd-4b20-9b6b-d330fabc3f55
+      command = "(ssh deployer@timbox-ws-03); bash"
+[plugins]
